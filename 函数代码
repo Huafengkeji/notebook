@@ -1,0 +1,149 @@
+def stu(name,age,addr):
+    print("I am a student")
+    print("我叫{0},我今年{1}岁了,我住{2}".format(name,age,addr))
+    
+n="wenwen"
+a="17"
+addr="我家"
+#普通参数，只是按照位置传递，非常容易出错
+stu(n,a,addr)
+
+def stu_key(name="no name",age=0,addr="no addr"):#参数没有控制格，直接写死。
+    print("I am a student")
+    print("我叫{0},我今年{1}岁了,我住{2}".format(name,age,addr))
+    
+n = "wenwen"#有空格，可以无
+a = "17"
+addr = "我家"
+stu_key(name=n,age=a,addr=addr)
+
+
+def stu(*args):
+    print("hello,大家好，我自我介绍下，简要说两句：")
+    print(type(args))
+    #type函数作用是检测变量的类型
+    for items in args:
+        print(items)
+
+stu("wenwen",18,"湖北","yuanyuan","single")
+stu("周大神")
+
+#"tuple"和"list"的区别
+#收集参数调用案例
+#说明收集参数可以不带任何实参调用，此时收集参数为空tuple
+
+stu()
+
+
+def stu(**kwargs):
+    print("Hello,大家好，自我介绍一下：")
+    #在函数体内对于kwargs的使用不用带星号
+    print(type(kwargs))
+    #对于字典的访问，python2和python3有区别
+    for k,v in kwargs.items():
+        print (k,"....",v)
+
+stu(name="张飞",age="18",addr="湖北",lover="wangjing",work="teacher")
+
+print("*"*50)
+
+stu(name="关羽")
+
+
+def stu(**kwargs):
+    print("Hello,大家好，自我介绍一下：")
+    print(type(kwargs))
+    for k,v in kwargs.items():
+        print (k,"....",v)
+
+stu(name="张飞",age="18",addr="湖北",lover="wangjing",work="teacher")
+
+print("*"*50)
+
+stu(name="关羽")
+
+
+def stu(name,age,*args,hobby="没有",**kwargs):
+    print("Hello,大家好，自我介绍一下：")
+    print("我叫{0},我今年{1}岁了".format(name,age,))
+    if hobby=="没有":
+        print("对不起，我没有爱好")
+    else:
+        print("我喜欢{0}".format(hobby))
+        
+    print("*"*50)
+    
+    for i in args:
+        print(i)
+        
+    for k,v in kwargs.items():
+        print(k,"....",v)
+        print("我叫{0},我今年{1}岁了,我喜欢{2}".format(name,age,hobby))
+name="张飞"
+age=18
+
+#调用的不同格式
+stu(name,age)
+
+stu(name,age,hobby="游泳")
+
+stu(name,age,"关羽","张飞",18,19,hobby="游泳",hobby2="做饭",hobby3="打飞机")
+
+
+def stu(*args):
+    print("哈哈哈哈")
+    #n用来表示调试次数
+    #主要用来调试
+    n=0
+    for i in args:
+        print(type(i))
+        print(n)
+        n+=1
+        print(i)
+      
+#stu("liuling",19,23,"wangxiaojing")
+ 
+l=list()
+l.append("liuming")
+l.append(20)
+l.append(236)
+
+stu(l)
+
+l=["liuming",19,23,"wangxiaojin"]
+stu(l)
+
+
+def func_1():
+    print("有返回值")
+    return 1
+
+def func_2():
+    print("没有返回值")
+    
+f1 = func_1()
+print(f1)
+
+f2 = func_2()
+print(f2)
+
+
+def stu(name, age, *args):
+    '''
+    这是第一行
+    这是第二行
+    这是第三行
+    '''
+    print("this is hanshu stu")
+ 
+ 
+def stu(name,age):
+    '''
+    这是文档文字的内容
+    :param name:表示学生的姓名
+    :param age:表示学生的年龄
+    :return:此函数没有返回值
+    '''
+print(help(stu))
+print("*"*20)
+print(stu._doc_)
