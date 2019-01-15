@@ -1,0 +1,90 @@
+a1=100
+
+def fun():
+    print(a1)
+    print("i am in fun")
+    #a2的作用域是fun
+    a2=99
+    print(a2)
+    
+print(a1)
+fun()
+print(a2)#(a2不能直接调用)
+
+
+def fun():
+    global b1
+    b1=100
+    print(b1)
+    print("i am in fun")
+    #b2的作用域是fun
+    b2=99
+    print(b2)
+    
+fun()
+
+#print(b1) 
+#print(b2)#有问题滴
+
+
+#globals和locals
+a=1
+b=2
+
+def fun(c,d):
+    e=111
+    print("locals={0}".format(locals()))
+    print("globals={0}".format(globals()))
+
+fun(100,200)
+
+
+x=200
+y=100
+#执行z=x+y
+z1=x+y
+z2=eval("x+y")
+print(z1)
+print(z2)
+
+
+x=200
+y=100
+#执行z=x+y
+z1=x+y
+z2=eval("x+y")
+print(z1)
+print(z2)
+
+
+x=200
+y=100
+#执行z=x+y
+z1=x+y
+z2=exec("print('x+y:',x+y)")
+
+print(z1)
+print(z2)
+
+
+m=0
+
+def fun():
+    global m
+    m+=1
+    print(m)
+    #函数调用自己
+    fun()
+    
+#调用函数
+fun()
+
+
+def fib(n):
+    if n == 1:
+        return 1
+    if n == 2:
+        return 1
+    return fib(n-1) + f(n-2)
+
+print(fib(3))
