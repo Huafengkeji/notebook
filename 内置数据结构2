@@ -1,0 +1,182 @@
+#传值/传址
+def a(n):
+    n[2] = 300
+    print(n)
+    return None
+
+def b(n):
+    n+=100
+    print(n)
+    return None
+
+an = [1,2,3,4,5]
+bn = 9
+
+print(an)
+a(an)
+print(an)
+
+print(bn)
+b(bn)
+print(bn)
+
+
+#append 插入一个内容
+a = [i for i in range(1,5)]
+print(a)
+a.append(100)
+print(a)
+
+#insert 制定位置插入
+#insert(index,data)
+print(a)
+a.insert(3,888)
+print(a)
+
+#pop,从对位拿出一个元素，即把最后一个元素拿出
+print(a)
+last_ele = a.pop()
+print(a)
+
+#remove 在列表中删除指定的元素
+print(a)
+print(id(a))
+a.remove(4)
+print(a)
+print(id(a))
+del a[2]
+print(a)
+
+#clear:清空
+print(a)
+print(id(a))
+a.clear()
+print(a)
+print(id(a))
+
+#reverse:反转
+a = [1,2,3,4,5,6]
+print(a)
+print(id(a))
+a.reverse()
+print(a)
+print(id(a))
+
+#extend:扩展列表，两个列表，把一个接到后一个上边
+a = [1,2,3,4,5,6]
+print(a)
+print(id(a))
+b = [7,8,9,10]
+a.extend(b)
+print(a)
+print(id(a))
+
+#count：查找列表中指定的值或元素个数
+print(a)
+a.append(8)
+a.insert(3,10)
+print(a)
+a_len = a.count(10)
+print(a_len)
+
+#copy:拷贝，浅拷贝
+#列表类型变量数值示例
+a = [1,2,3,4,5,6]
+print(a)
+print(id(a))
+#list类型，简单赋值操作，是传址操作
+b = a
+b[3] = 333
+print(a)
+print(id(a))
+print(b)
+print(id(b))
+print("*"*20)
+#为了解决上边问题，list赋值需采用copy函数
+b = a.copy()
+print(a)
+print(id(a))
+print(b)
+print(id(b))
+print("*"*20)
+b[3]=20
+print(a)
+print(b)
+
+a = [1,2,3,[10,20,30]]
+b = a.copy()
+print(id(a))
+print(id(b))
+print(id(a[3]))
+print(id(b[3]))
+a[3][2] = 55
+print(a)
+print(b)
+
+
+#创建一个空元组
+t = ()
+print(type(t))
+
+#创建一个只有一个值的元组
+t = (1,)
+print(type(t))
+print(t)
+
+#创建多个值
+t = (1,2,3,4,5)
+print(type(t))
+print(t)
+
+#其他方式
+l = [1,2,4,5,6,7]
+t = tuple(l)
+print(type(t))
+print(t)
+
+
+#索引操作
+t = (1,2,3,4,5)
+print(t[4])
+t1 = t[1:3]
+print(t1)
+
+#切片可以超标
+t2 = t[2:200]
+print(t2)
+
+#序列相加
+t3 = t1+t2
+print(t3)
+
+#传址操作
+print(t1)
+print(id(t1))
+t1 = t1+t2
+print(t1)
+print(id(t1))
+
+#元组相乘
+t1 = (1,2,3,4)
+t = t1*4
+print(t)
+
+#成员检测
+t= (1,2,3,4)
+if 2 in t:
+    print("yes")
+else:
+    print("no")
+ 
+#1， 单元组遍历
+t = (1,2,4,5,"wangxiaojign","love")
+for i in t:
+    print(i)
+ 
+#双层元组遍历
+t = ((1,2,3),(2,3,4),("1","love","wangxiaojing"))
+for k,v,w in t:
+    print(k,"..",v,"..",w)
+ 
+for i in t:
+    print(i)
